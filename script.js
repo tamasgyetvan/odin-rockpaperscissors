@@ -1,21 +1,4 @@
-function game() {
-    for (let i = 0; i<5; i++) {
-
-        let x = getPlayerChoice();
-        let y = getComputerChoice();
-
-        console.log("Player choice: " + x);
-        console.log("Computer Choice: " + y);
-
-        playRound(x,y);
-       
-    }
-}
-
-
-
-
-
+/** plays a round based on return values of getComputerChoice and getPlayerChoice */
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == computerSelection) {
@@ -36,18 +19,16 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == "Scissors" && computerSelection == "Paper")) {
 
             console.log("You win!");
-        }
-  
-
-        
+        }        
 }
-
+/**Randomly chooses and returns a value from possible choices */
 function getComputerChoice() {
 
     const compChoice = ["Rock", "Paper", "Scissors"];
     return compChoice[Math.floor(Math.random()*compChoice.length)]
 
 }
+/**Asks user for an input and returns the value if it meets the requirements*/
 
 function getPlayerChoice() {
 
@@ -59,15 +40,19 @@ function getPlayerChoice() {
         } else {
             console.log("Wrong input, try again!")
         }
-
     }
-
- 
-
 }
 
-game();
 
+document.getElementById("playerbuttons").addEventListener("click", function(e) {
+    
+    let player = e.target.id;
+    let comp = getComputerChoice();
+
+    playRound(player, comp)
+
+
+})
 
 
 
