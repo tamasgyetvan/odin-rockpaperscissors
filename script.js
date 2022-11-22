@@ -1,8 +1,26 @@
+function game() {
+    for (let i = 0; i<5; i++) {
+
+        let x = getPlayerChoice();
+        let y = getComputerChoice();
+
+        console.log("Player choice: " + x);
+        console.log("Computer Choice: " + y);
+
+        playRound(x,y);
+       
+    }
+}
+
+
+
+
+
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == computerSelection) {
 
-        console.log("Draw")
+        console.log("Draw");
 
     }
     
@@ -10,14 +28,14 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == "Paper" && computerSelection =="Scissors") ||
         (playerSelection == "Scissors" && computerSelection == "Rock")) {
 
-            console.log("You Lose!")
+            console.log("You Lose!");
         }
 
     if ((playerSelection == "Rock" && computerSelection =="Scissors") || 
         (playerSelection == "Paper" && computerSelection =="Rock") ||
         (playerSelection == "Scissors" && computerSelection == "Paper")) {
 
-            console.log("You win!")
+            console.log("You win!");
         }
   
 
@@ -33,23 +51,23 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
 
-    let playerChoice = String(prompt("Enter your choice:"))
+    while (true) {        
+        let playerChoice = String(prompt("Enter your choice:"));
+        if (["rock", "paper", "scissors"].includes(playerChoice.toLowerCase())) {
+            return playerChoice.charAt(0).toLocaleUpperCase() + playerChoice.slice(1);
+            break;
+        } else {
+            console.log("Wrong input, try again!")
+        }
 
-    if (["rock", "paper", "scissors"].includes(playerChoice.toLowerCase())) {
-        return playerChoice.charAt(0).toLocaleUpperCase() + playerChoice.slice(1)
-    } else {
-        console.log("Wrong input, please reload the page and enter a valid input!")
-        
     }
+
+ 
 
 }
 
-let x = getPlayerChoice();
-let y = getComputerChoice();
+game();
 
-console.log("Player choice: " + x)
-console.log("Computer Choice: " + y)
-playRound(x, y);
 
 
 
