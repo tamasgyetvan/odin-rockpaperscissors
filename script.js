@@ -2,14 +2,22 @@ let computerCurrentScore = 0;
 let playerCurrentScore = 0;
 let playerChoice = 0;
 let compChoice = 0;
+
 function playGame() {
 
+    playRound(playerChoice, compChoice);
+    updateScoreBoard();
 
-    while (computerCurrentScore != 5 || playerCurrentScore != 5) {
-        playRound(playerChoice, compChoice);
+    if (playerCurrentScore == 5 || computerCurrentScore == 5) {
+        announceWinner();
+        computerCurrentScore = 0;
+        playerCurrentScore = 0;
+        
     }
+
     
-    
+     
+  
 
     
 }
@@ -18,7 +26,6 @@ function playRound(playerSelection, computerSelection) {
     
     if (playerSelection == computerSelection) {
 
-        console.log("Draw");
         computerCurrentScore++;
         playerCurrentScore++;
 
@@ -28,7 +35,6 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == "Paper" && computerSelection =="Scissors") ||
         (playerSelection == "Scissors" && computerSelection == "Rock")) {
 
-            console.log("You Lose!");
             computerCurrentScore++;
 
         }
@@ -37,7 +43,6 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == "Paper" && computerSelection =="Rock") ||
         (playerSelection == "Scissors" && computerSelection == "Paper")) {
 
-            console.log("You win!");
             playerCurrentScore++;
         }        
 }
@@ -67,41 +72,57 @@ function getPlayerChoice() {
 
 document.getElementById("playerbuttons").addEventListener("click", function(e) {
     
+    /*Sets playerChoice based on clicked button*/
+    playerChoice = e.target.id;
+
+    /*Randomly assigns a value to compChoice */
+    compChoice = getComputerChoice();
+
+    
+    playGame();
+    
     
 
-    if (e.target.id === "Rock") {
-        playerChoice = "Rock";
-    } else if (e.target.id === "Paper") {
-        playerChoice = "Paper";
-    } else {
-        playerChoice = "Scissors";
-    }
+    
 
-    compChoice = getComputerChoice();
-    playRound(playerChoice, compChoice)
-    console.log(playerChoice)
-    console.log(compChoice)
+   
+});
+
+/**Updates scoreboard by adding the value of playerCurrentScore and computerCurrentScore to the scoreboard <div> */
+function updateScoreBoard() {
 
     const playerScoreDiv = document.getElementById("playerscore");
-    const compScoreDiv = document.getElementById("computerscore");
+    const compScoreDiv = document.getElementById("computerscore");   
 
     playerScoreDiv.innerHTML = playerCurrentScore;
     compScoreDiv.innerHTML = computerCurrentScore;
-    
-
 
     
+}
+
+function announceWinner() {
+
+    const winnerDiv = document.getElementById("winner");
+    if (computerCurrentScore === 5 && playerCurrentScore === 5) {
+        
+        winnerDiv.innerHTML = "Draw!"      
+
+    }
+
+    if (computerCurrentScore === 5) {
+
+        winnerDiv.innerHTML = "You Lose!"
+    }
+
+    if (playerCurrentScore === 5) {
+        
+        winnerDiv.innerHTML = "You win!"
+    }
+
     
-    
+}
 
 
-    console.log(playerCurrentScore)
-    console.log(computerCurrentScore)
-
-
-    
-   
-})
 
 
 
