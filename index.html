@@ -6,40 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RockPaperScissors</title>
     <script src ="script.js" defer></script>
+    <link rel = "stylesheet" href = "style.css">
+    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+                
+                
 </head>
 <body>
     <div id = "header">
-        <p1>Rock Paper Scissors</p1>
+        <div class="title">Rock  Paper  Scissors</div>
+        <div class="description">Choose your weapon by clicking on one of the buttons!</div>
     </div>
 
     <div id = "content">
-        <div id = "playerbuttons">
-            <button id = "Rock">✊</button>
-            <button id = "Paper">✋</button>
-            <button id = "Scissors">✌️</button>
+        <div id = buttons>
+            <div id = "playerbuttons">
+                <button class = "btn" id = "Rock">✊</button>
+                <button class = "btn" id = "Paper">✋</button>
+                <button class = "btn" id = "Scissors">✌️</button>
+            </div>
+            
+             <div class = "computerbuttons">
+                <button class = "btn">✊</button>
+                <button class = "btn">✋</button>
+                <button class = "btn">✌️</button>
+             </div>
         </div>
-        
-         <div class = "computerbuttons">
-            <button>✊</button>
-            <button>✋</button>
-            <button>✌️</button>
-         </div>
-         <div id = "scoreboard">
-            <h1>Scoreboard</h1>
-            <div id="playerscore">
-                0
-            </div>
-            <div id="computerscore">
-                0
-            </div>
 
+        <div id = scoreboard>
+            <div class = "player">
+                <img src = "img/human.png" alt = "human logo">
+                <div>Player</div>
+                <div id = "playerscore">0</div>
+            </div>
             <div id ="winner"></div>
-         </div>
+            <div class = computer>
+                <img src = "img/robot2.png" alt = "robot logo">
+                <div>Computer</div>
+                <div id = "computerscore">0</div>
+            </div>
+            
+        </div>      
     </div>
 
-    <div id = "footer">
-
-    </div>
+    <div id = "footer"></div>
     
     
 </body>

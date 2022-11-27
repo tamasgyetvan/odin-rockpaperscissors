@@ -1,0 +1,89 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    font-family: "ArcadeClassic", sans-serif; 
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.title {
+
+    font-size: 50px;
+}
+
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+}
+
+/*Button styles */
+#buttons {
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.playerbutton:active {
+    border-color: 2px solid yellow;
+
+}
+
+.btn {
+    background-color:aquamarine;
+    border-color: 1px solid white;
+    color: aliceblue;
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 50px;
+}
+/*Scoreboard styles */
+
+#scoreboard {  
+    display: flex;
+    gap: 50px;
+    margin-top: 100px;
+    padding: 10px;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 25px;
+
+}
+
+#winner {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    align-items: center;
+}
+
+
+
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-direction: row;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+.winner {
+    text-align: center;
+}
+
+
+
